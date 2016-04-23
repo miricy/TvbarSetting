@@ -1,0 +1,69 @@
+/*
+ * Copyright (C) 2015 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License
+ */
+
+package com.yekertech.tvbarsetting.device.storage;
+
+import android.os.Bundle;
+import android.os.storage.DiskInfo;
+import android.os.storage.StorageManager;
+import android.support.annotation.NonNull;
+import android.support.v17.leanback.widget.GuidanceStylist;
+import android.support.v17.leanback.widget.GuidedAction;
+
+import com.yekertech.tvbarsetting.R;
+
+import java.util.List;
+
+public class SlowDriveStepFragment extends StorageGuidedStepFragment {
+
+    public interface Callback {
+        void onSlowDriveWarningComplete();
+    }
+
+    public static SlowDriveStepFragment newInstance() {
+        return new SlowDriveStepFragment();
+    }
+
+    @Override
+    public @NonNull GuidanceStylist.Guidance onCreateGuidance(Bundle savedInstanceState) {
+        String title = getActivity().getString(R.string.storage_wizard_format_slow_title);
+        String description = getActivity().getString(R.string.storage_wizard_format_slow_summary);
+        StorageManager storageManager = getActivity().getSystemService(StorageManager.class);
+        DiskInfo info = storageManager.findDiskById(getArguments().getString(DiskInfo.EXTRA_DISK_ID));
+        if (info.isSd()) {
+            title = getActivity().getString(R.string.storage_wizard_format_slow_title_sd);
+            description = getActivity().getString(R.string.storage_wizard_format_slow_summary_sd);
+        }
+
+        return new GuidanceStylist.Guidance(
+                title,
+                description,
+                null,
+                getActivity().getDrawable(R.drawable.ic_settings_error));
+    }
+
+    @Override
+    public void onCreateActions(@NonNull List<GuidedAction> actions, Bundle savedInstanceState) {
+        actions.add(new GuidedAction.Builder()
+                .title(getString(android.R.string.ok))
+                .build());
+    }
+
+    @Override
+    public void onGuidedActionClicked(GuidedAction action) {
+        ((Callback) getActivity()).onSlowDriveWarningComplete();
+    }
+}

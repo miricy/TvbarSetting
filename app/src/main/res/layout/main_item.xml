@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutTop"
+    android:layout_width="@dimen/browse_item_width"
+    android:layout_height="@dimen/browse_item_height"
+    android:background="@color/yellow"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/browse_item_icon_width"
+        android:layout_height="@dimen/browse_item_icon_height"
+
+        android:layout_centerInParent="true"
+        android:padding="@dimen/icon_padding"
+        android:scaleType="fitCenter"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/browse_item_text_marginHor"
+        android:layout_marginEnd="@dimen/browse_item_text_marginHor"
+        android:layout_marginBottom="@dimen/browse_item_title_marginBottom"
+        android:layout_alignParentBottom="true"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-condensed"
+        android:includeFontPadding="true"
+        android:lineSpacingExtra="4sp"
+        android:gravity="center_horizontal|top"
+        android:lines="1"
+        android:singleLine="true"
+        android:textColor="@color/overlay_blended_light_primary"
+        android:textSize="@dimen/browse_item_title_font_size" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/browse_item_text_marginHor"
+        android:layout_marginEnd="@dimen/browse_item_text_marginHor"
+        android:layout_marginBottom="@dimen/browse_item_description_marginBottom"
+        android:layout_alignParentBottom="true"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-condensed"
+        android:includeFontPadding="true"
+        android:gravity="center_horizontal|bottom"
+        android:lines="1"
+        android:singleLine="true"
+        android:textColor="@color/overlay_blended_light_secondary"
+        android:textSize="@dimen/browse_item_description_font_size"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/background_item" />
+    <item android:drawable="@color/background_item_select" android:state_selected="true" />
+    <item android:drawable="@color/background_item_select" android:state_activated="true" />
+    <item android:drawable="@color/background_item_select" android:state_focused="true" />
+    <item android:drawable="@color/background_item_select" android:state_window_focused="true"  />
+    <item android:drawable="@color/background_item_select" android:state_active="true" />
+</selector>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TvbarSetting</string>
+    <string name="about_app">关于</string>
+    <string name="browse_title">设置</string>
+    <string name="buy_1">购买</string>
+    <string name="buy_2">9.99美元</string>
+    <string name="error"></string>
+</resources>

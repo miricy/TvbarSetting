@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    signingConfigs {
+        platform {
+            storeFile file('/work/dev/android/android-sdk-linux/m6platformdebug.keystore')
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    defaultConfig {
+        applicationId "com.yekertech.tvbarsetting"
+        minSdkVersion 23
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        signingConfig signingConfigs.platform
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.platform
+        }
+        debug {
+            signingConfig signingConfigs.platform
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile 'com.android.support:recyclerview-v7:23.3.0'
+    compile 'com.android.support:leanback-v17:23.3.0'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.github.bumptech.glide:glide:3.4.+'
+}

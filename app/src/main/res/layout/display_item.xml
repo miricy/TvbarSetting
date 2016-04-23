@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutTopDisplay"
+    android:layout_width="800dp"
+    android:layout_height="80dp"
+    android:layout_marginLeft="160dp"
+    android:background="@drawable/item_selector_bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+     >
+
+    <TextView
+        android:id="@+id/titleDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-condensed"
+        android:includeFontPadding="true"
+        android:lineSpacingExtra="4sp"
+        android:gravity="left"
+        android:lines="1"
+        android:singleLine="true"
+        android:text="testgrid"
+        android:textColor="@color/overlay_blended_light_primary"
+        android:textSize="@dimen/browse_item_title_font_size" />
+
+
+
+    <ImageView
+        android:id="@+id/iconDisplay"
+        android:layout_width="@dimen/browse_item_icon_width"
+        android:layout_height="@dimen/browse_item_icon_height"
+
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/icon_padding"
+        android:scaleType="fitCenter"
+        tools:ignore="ContentDescription" />
+
+
+    <TextView
+        android:id="@+id/descriptionDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignLeft="@id/iconDisplay"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-condensed"
+        android:includeFontPadding="true"
+        android:gravity="center_horizontal"
+        android:lines="1"
+        android:singleLine="true"
+        android:text="test"
+        android:textColor="@color/overlay_blended_light_secondary"
+        android:textSize="@dimen/browse_item_description_font_size"
+        />
+
+
+</RelativeLayout>
+
